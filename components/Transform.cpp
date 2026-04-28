@@ -3,7 +3,6 @@
 
 namespace Components {
     Transform::Transform() : m_Position(0.0f), m_Scale(1.0f), m_Rotation(glm::quat(1.0f,0.0f,0.0f,0.0f)){
-
     }
     void Transform::bindObject(Objects::Object *object) {
         m_Object = object;

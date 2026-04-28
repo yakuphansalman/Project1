@@ -3,6 +3,7 @@
 
 #include<glm/gtc/matrix_transform.hpp>
 #include<glm/vec3.hpp>
+#include<glm/gtc/constants.hpp>
 
 
 
@@ -13,6 +14,7 @@ namespace Interface {
         static const glm::mat4 GETMODEL();
         static Objects::Object* PARENT;
         static const glm::vec3 GETCOLOR();
+        static bool ISGLOBAL;
     };
 
 } // Interface

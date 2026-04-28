@@ -4,6 +4,7 @@
 
 #include "gl.h"
 #include <GLFW/glfw3.h>
+#include <glm/gtc/constants.hpp>
 #include "programs/ShaderProgram.hpp"
 #include "components/Component.hpp"
 
@@ -38,6 +39,8 @@ namespace Components {
     public:
         MeshRenderer();
 
+        int a = 0;
+
         void bindObject(Objects::Object *object) override;
 
         std::vector<Vertex> vertices;
@@ -56,6 +59,7 @@ namespace Components {
         static unsigned int M_G_VAO_X,M_G_VAO_Y,M_G_VAO_Z;
         static unsigned int M_G_VBO_X,M_G_VBO_Y,M_G_VBO_Z;
         bool m_IsStarted = false;
+
 
         static void RENDERGIZMOS();
         static void INITGIZMOS();

@@ -4,18 +4,38 @@ project(Project1)
 set(CMAKE_CXX_STANDARD 20)
 
 set(dependencies_DIR "${CMAKE_SOURCE_DIR}/../Dependencies")
-set(glfw3_DIR "${dependencies_DIR}/GLFW/lib/cmake/glfw3")
 set(glm_DIR "${dependencies_DIR}/glm")
 set(glad_DIR "${dependencies_DIR}/GLAD")
 set(stb_DIR "${dependencies_DIR}/stb")
+set(Assimp_DIR "${dependencies_DIR}/assimp")
+set(AI_DIR "${dependencies_DIR}/ai")
+set(INTROSPECTOR_EXE "D:/Projects/OpenGL/Introspector/cmake-build-debug/Introspector.exe")
+
+
+
+set(GENERATED_FILE "${CMAKE_SOURCE_DIR}/generated/Generated.cpp")
+
+add_subdirectory(projects/Introspector)
+
+set(MAIN_PROJECT_SOURCES
+    src/main.cpp)
+
+add_custom_command(
+        OUTPUT ${GENERATED_FILE}
+        COMMAND Introspector "${CMAKE_SOURCE_DIR}/src" "${GENERATED_FILE}"
+        DEPENDS Introspector
+        COMMENT "Introspector calisiyor ve Generated.cpp olusturuluyor..."
+        VERBATIM
+)
+
 
 SET(PROJECT_SOURCES
         ${CMAKE_SOURCE_DIR}/src/main.cpp
         ${glad_DIR}/gl.c
-        objects/master.cpp
-        objects/master.hpp
-        objects/Master.cpp
-        objects/Master.hpp
+        Master.cpp
+        Master.hpp
+        Master.cpp
+        Master.hpp
         objects/Object.cpp
         objects/Object.hpp
         components/Transform.cpp
@@ -48,24 +68,33 @@ SET(PROJECT_SOURCES
         managers/Time.hpp
         interface/Gizmos.cpp
         interface/Gizmos.hpp
+        managers/TextureManager.cpp
+        managers/TextureManager.hpp
+        components/Material.cpp
+        components/Material.hpp
+        generated/Generated.cpp
+        generated/Generated.hpp
+        AI/TTS/ITTSEngine.cpp
+        AI/TTS/ITTSEngine.hpp
+        AI/TTS/PiperEngine.cpp
+        AI/TTS/PiperEngine.hpp
 )
 
-
-set(CMAKE_PREFIX_PATH ${glfw3_DIR})
-set(CMAKE_MODULE_PATH ${glfw3_DIR})
-
-find_package(glfw3 3.2 REQUIRED)
 
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
 
 target_include_directories(${PROJECT_NAME}  PRIVATE
         ${dependencies_DIR}
-        ${glfw3_DIR}/../../../include
+        ${dependencies_DIR}/GLFW/include
         ${glad_DIR}/include
         ${glm_DIR}
         ${stb_DIR}
+        ${AI_DIR}
+
+        ${CMAKE_SOURCE_DIR}/AI
+
 
         ${CMAKE_SOURCE_DIR}
 
 )
-target_link_libraries(${PROJECT_NAME} glfw opengl32)
+target_link_libraries(${PROJECT_NAME} "${dependencies_DIR}/GLFW/lib/glfw3.lib" opengl32)

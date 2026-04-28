@@ -30,7 +30,18 @@ namespace Objects {
     std::vector<Components::Component*> Object::getComponents() {
         return m_Components;
     }
+    const bool Object::isActive() const {
+        return m_Active;
+    }
 
+    const std::string Object::getType() const {
+        return m_Type;
+    }
+
+
+    void Object::setActive(bool active) {
+        m_Active = active;
+    }
     void Object::setName(const std::string &name) {
         m_Name = name;
     }

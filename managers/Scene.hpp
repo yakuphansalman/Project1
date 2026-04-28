@@ -9,6 +9,7 @@ namespace Objects {
     class Entity;
     class Light;
     class Camera;
+    class Object;
 }
 namespace Components {
     class MeshRenderer;
@@ -22,6 +23,7 @@ namespace Managers {
     public:
         Scene(const std::string name);
 
+        static std::vector<Objects::Object*> OBJECTS;
         static std::vector<Objects::Entity*> ENTITIES;
         static std::vector<Objects::Light*> LIGHTS;
         static std::vector<Objects::Camera*> CAMERAS;

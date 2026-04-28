@@ -12,20 +12,26 @@
 #include "components/MeshRenderer.hpp"
 #include "components/Transform.hpp"
 #include "interface/Gizmos.hpp"
+#include "managers/TextureManager.hpp"
 #include "managers/Time.hpp"
 #include "objects/Camera.hpp"
 #include "objects/Light.hpp"
 
 
 Managers::Scene* scene = new Managers::Scene("main scene");
-//Objects::Custom* custom = new Objects::Custom("cube-updated");
+Objects::Custom* custom = new Objects::Custom("cube");
 Managers::Time* timer = new Managers::Time();
 float ang = 0.0f;
 float radius = 3.0f;
 void start() {
+    custom->setName("Main-Cube");
+    Object* test = new Object();
+    test->addComponent<Components::MeshRenderer>();
+    test->getComponent<Components::MeshRenderer>(0)->a = 5;
+    std::cout << "NEW VALUE OF \"a\" : " << test->getComponent<Components::MeshRenderer>(0)->a << std::endl;
     Scene::ACTIVECAMERA->getTransform()->setLocalPosition(glm::vec3(0.0f, 1.0f, 3.0f));
     Scene::ACTIVECAMERA->getTransform()->setLocalRotation(glm::vec3(-0.1f, 0.0f, 0.0f));
-    Scene::LIGHTS[0]->getTransform()->setLocalPosition(glm::vec3(0.0f, 3.0f, 0.0f));
+    Scene::LIGHTS[0]->getTransform()->setLocalPosition(glm::vec3(-3.0f, 3.0f, 0.0f));
     for (auto* renderer : Managers::Scene::MESHRENDERERS) {
         renderer->start();
     }
@@ -33,8 +39,11 @@ void start() {
 void update() {
     ang+= 0.008f;
     glm::vec3 route = glm::vec3(cos(ang),1.0f,sin(ang)) * radius;
-    Scene::LIGHTS[0]->getTransform()->setLocalPosition(route);
-    //custom->getTransform()->setLocalRotation(glm::vec3(ang));
+    //Scene::LIGHTS[0]->getTransform()->setLocalPosition(route);
+    custom->getTransform()->setLocalRotation(glm::vec3(ang));
+    for (auto* ent : Managers::Scene::ENTITIES) {
+        ent->getMaterial()->updateTexture();
+    }
     for (auto* renderer : Managers::Scene::MESHRENDERERS) {
         renderer->update();
     }
@@ -103,6 +112,16 @@ int main() {
         glClearColor(0.1f,0.1f,0.1f,1.0f);
         /* GL_DEPTH_BUFFER_BIT checks depth of the objects*/
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        {
+            std::lock_guard<std::mutex> lock(commander0.g_CommandMutex);
+            while (!commander0.g_CommandQueue.empty()) {
+                auto command = commander0.g_CommandQueue.front();
+                commander0.g_CommandQueue.pop();
+                command();
+            }
+        }
+
 
         /*Update function runs frame by frame*/
         update();

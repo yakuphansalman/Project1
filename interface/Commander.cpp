@@ -188,6 +188,48 @@ void Commander::command() {
                 }
             }
         }
+        if (tokens[0] == "giz") {
+            if (tokens[1] == "loc") {
+                Interface::Gizmos::ISGLOBAL = false;
+                std::cout << "Gizmo localized" << std::endl;
+            }
+            else if (tokens[1] == "glo") {
+                Interface::Gizmos::ISGLOBAL = true;
+                std::cout << "Gizmo global" << std::endl;
+            }
+        }
+        if (tokens[0] == "tex") {
+            if (tokens.size() == 3) {
+                try {
+                    int i = std::stoi(tokens[1]);
+                    std::string textureName = tokens[2];
+
+                    {
+                        std::lock_guard<std::mutex> lock(g_CommandMutex);
+                        g_CommandQueue.push([i,textureName]() {
+                           if (i< Managers::Scene::ENTITIES.size()) {
+                               Managers::Scene::ENTITIES[i]->getMaterial()->setTexture("texture_0.jpg");
+                               std::cout << "Texture : " << textureName << " attached to " << Managers::Scene::ENTITIES[i]->getName() << std::endl;
+                           }
+                        });
+                    }
+                } catch (const std::exception& e) {
+                    std::cout << e.what() << std::endl;
+                }
+            }
+            else {
+                std::cout << "Wrong parameters" << std::endl;
+            }
+        }
+        if (tokens[0] == "file") {
+            if (tokens[1] == "save") {
+                if (tokens.size() != 3) {
+                    std::cout << "Wrong parameters!" << std::endl;
+                    continue;
+                }
+                FileManager::saveScene(tokens[2]);
+            }
+        }
     }
     FreeConsole();
 }

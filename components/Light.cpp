@@ -3,9 +3,6 @@
 #include "objects/Object.hpp"
 #include "managers/Scene.hpp"
 namespace Components {
-    Light::Light() {
-        m_Active = true;
-    }
     void Light::bindObject(Objects::Object *object) {
         m_Object = object;
         m_Object->getComponents().push_back(this);

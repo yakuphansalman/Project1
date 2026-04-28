@@ -1,10 +1,18 @@
 #include "FileManager.hpp"
 
+#include "generated/Generated.hpp"
+
 namespace Managers {
-    const std::string FileManager::SAVEFOLDER = "../saves/";
-    const std::string FileManager::MODELFOLDER = "../models/";
 
     void FileManager::saveScene(const std::string &fileName) {
+        std::ofstream file(SAVEFOLDER + fileName);
+        if (!file.is_open()) {
+            std::cout << "File : " << fileName << " couldn't opened." << std::endl;
+            return;
+        }
+        std::cout << "File : "<< fileName <<" has created successfully." << std::endl;
+
+        file.close();
     }
 
     void FileManager::loadScene(const std::string &fileName) {
@@ -60,29 +68,11 @@ namespace Managers {
             }
         }
         meshRenderer->vertices.resize(vertexIndices.size());
-        for (int i = 0;i<temp_v.size();i++) {
-            meshRenderer->vertices[i].position = temp_v[i];
-        }
         for (int i = 0;i<vertexIndices.size();i++) {
-            meshRenderer->indices.push_back(vertexIndices[i]-1);
+            meshRenderer->indices.push_back(i);
+            meshRenderer->vertices[i].position = temp_v[vertexIndices[i]-1];
             meshRenderer->vertices[i].normal = temp_n[normalIndices[i]-1];
             meshRenderer->vertices[i].texture = temp_uv[uvIndices[i]-1];
         }
-    }
-
-    json FileManager::entityToJson(const Entity *entity) {
-        return nullptr;
-    }
-
-    Entity *FileManager::jsonToEntity(const json &j) {
-        return nullptr;
-    }
-
-    json FileManager::componentToJson(const Component *component) {
-        return nullptr;
-    }
-
-    Component *FileManager::jsonToComponent(const json &j) {
-        return nullptr;
     }
 }

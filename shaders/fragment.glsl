@@ -2,14 +2,13 @@
 
 #define MAX_LIGHTS 100
 
+in vec2 texCoord;
+flat in vec3 normal;
+in vec3 fragPos;
+
 out vec4 fragColor;
 
 uniform vec4 uColor;
-
-in vec2 texCoord;
-in vec3 normal;
-in vec3 fragPos;
-
 uniform sampler2D ourTexture;
 //Light uniforms
 struct Light{
@@ -44,7 +43,6 @@ void main()
 
         float distance    = length(lights[i].position - fragPos);
         float attenuation = 1.0 / (1.0 + 0.09 * distance + 0.032 * (distance * distance));
-        // buradaki 0.09 ve 0.032 değerleri deneme amaçlıdır, istediğin etki için ayarlayabilirsin
 
         // Ambient
         ambient += ambientStrength * lightColor * attenuation;
@@ -59,6 +57,6 @@ void main()
         float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
         specular += specularStrength * spec * lightColor * attenuation;
     }
-    vec3 result = (ambient + diffuse + specular); //* texture(ourTexture, texCoord).rgb;
-    fragColor = vec4(result, 1.0)*uColor;
+    vec3 result = (ambient + diffuse + specular) * texture(ourTexture, texCoord).rgb;
+    fragColor = vec4(result,1.0f);
 }

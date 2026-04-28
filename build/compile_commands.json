@@ -1,0 +1,134 @@
+[
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\src\\main.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\src\\main.cpp",
+  "file": "D:/Projects/OpenGL/Project1/src/main.cpp",
+  "output": "CMakeFiles/Project1.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\gcc.exe  @CMakeFiles/Project1.dir/includes_C.rsp -g -o CMakeFiles\\Project1.dir\\D_\\Projects\\OpenGL\\Dependencies\\GLAD\\gl.c.obj -c D:\\Projects\\OpenGL\\Dependencies\\GLAD\\gl.c",
+  "file": "D:/Projects/OpenGL/Dependencies/GLAD/gl.c",
+  "output": "CMakeFiles/Project1.dir/D_/Projects/OpenGL/Dependencies/GLAD/gl.c.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\objects\\master.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\objects\\master.cpp",
+  "file": "D:/Projects/OpenGL/Project1/objects/master.cpp",
+  "output": "CMakeFiles/Project1.dir/objects/master.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\objects\\Object.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\objects\\Object.cpp",
+  "file": "D:/Projects/OpenGL/Project1/objects/Object.cpp",
+  "output": "CMakeFiles/Project1.dir/objects/Object.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\components\\Transform.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\components\\Transform.cpp",
+  "file": "D:/Projects/OpenGL/Project1/components/Transform.cpp",
+  "output": "CMakeFiles/Project1.dir/components/Transform.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\components\\MeshRenderer.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\components\\MeshRenderer.cpp",
+  "file": "D:/Projects/OpenGL/Project1/components/MeshRenderer.cpp",
+  "output": "CMakeFiles/Project1.dir/components/MeshRenderer.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\programs\\ShaderProgram.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\programs\\ShaderProgram.cpp",
+  "file": "D:/Projects/OpenGL/Project1/programs/ShaderProgram.cpp",
+  "output": "CMakeFiles/Project1.dir/programs/ShaderProgram.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\components\\Component.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\components\\Component.cpp",
+  "file": "D:/Projects/OpenGL/Project1/components/Component.cpp",
+  "output": "CMakeFiles/Project1.dir/components/Component.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\components\\Camera.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\components\\Camera.cpp",
+  "file": "D:/Projects/OpenGL/Project1/components/Camera.cpp",
+  "output": "CMakeFiles/Project1.dir/components/Camera.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\components\\Light.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\components\\Light.cpp",
+  "file": "D:/Projects/OpenGL/Project1/components/Light.cpp",
+  "output": "CMakeFiles/Project1.dir/components/Light.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\managers\\Scene.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\managers\\Scene.cpp",
+  "file": "D:/Projects/OpenGL/Project1/managers/Scene.cpp",
+  "output": "CMakeFiles/Project1.dir/managers/Scene.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\objects\\Entity.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\objects\\Entity.cpp",
+  "file": "D:/Projects/OpenGL/Project1/objects/Entity.cpp",
+  "output": "CMakeFiles/Project1.dir/objects/Entity.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\objects\\Custom.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\objects\\Custom.cpp",
+  "file": "D:/Projects/OpenGL/Project1/objects/Custom.cpp",
+  "output": "CMakeFiles/Project1.dir/objects/Custom.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\managers\\FileManager.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\managers\\FileManager.cpp",
+  "file": "D:/Projects/OpenGL/Project1/managers/FileManager.cpp",
+  "output": "CMakeFiles/Project1.dir/managers/FileManager.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\objects\\Camera.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\objects\\Camera.cpp",
+  "file": "D:/Projects/OpenGL/Project1/objects/Camera.cpp",
+  "output": "CMakeFiles/Project1.dir/objects/Camera.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\objects\\Light.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\objects\\Light.cpp",
+  "file": "D:/Projects/OpenGL/Project1/objects/Light.cpp",
+  "output": "CMakeFiles/Project1.dir/objects/Light.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\interface\\Commander.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\interface\\Commander.cpp",
+  "file": "D:/Projects/OpenGL/Project1/interface/Commander.cpp",
+  "output": "CMakeFiles/Project1.dir/interface/Commander.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\managers\\Time.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\managers\\Time.cpp",
+  "file": "D:/Projects/OpenGL/Project1/managers/Time.cpp",
+  "output": "CMakeFiles/Project1.dir/managers/Time.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\interface\\Gizmos.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\interface\\Gizmos.cpp",
+  "file": "D:/Projects/OpenGL/Project1/interface/Gizmos.cpp",
+  "output": "CMakeFiles/Project1.dir/interface/Gizmos.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\managers\\TextureManager.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\managers\\TextureManager.cpp",
+  "file": "D:/Projects/OpenGL/Project1/managers/TextureManager.cpp",
+  "output": "CMakeFiles/Project1.dir/managers/TextureManager.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\components\\Material.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\components\\Material.cpp",
+  "file": "D:/Projects/OpenGL/Project1/components/Material.cpp",
+  "output": "CMakeFiles/Project1.dir/components/Material.cpp.obj"
+},
+{
+  "directory": "D:/Projects/OpenGL/Project1/build",
+  "command": "C:\\Tools\\MinGW\\bin\\g++.exe  @CMakeFiles/Project1.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Project1.dir\\generated\\Generated.cpp.obj -c D:\\Projects\\OpenGL\\Project1\\generated\\Generated.cpp",
+  "file": "D:/Projects/OpenGL/Project1/generated/Generated.cpp",
+  "output": "CMakeFiles/Project1.dir/generated/Generated.cpp.obj"
+}
+]

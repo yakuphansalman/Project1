@@ -13,8 +13,6 @@ namespace Components {
 
     class Light : public Component {
     public:
-        Light();
-
         void bindObject(Objects::Object *object) override;
 
         const glm::vec3 getColor() const;

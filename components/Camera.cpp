@@ -5,9 +5,6 @@
 #include "objects/Object.hpp"
 
 namespace Components {
-    Camera::Camera() {
-        m_Active = false;
-    }
     void Camera::bindObject(Objects::Object *object) {
         m_Object = object;
         m_Object->getComponents().push_back(this);

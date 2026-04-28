@@ -13,8 +13,6 @@ namespace Managers {
 namespace Components {
     class Camera : public Component {
     public:
-        Camera();
-
         void bindObject(Objects::Object *object) override;
 
         const glm::vec3 getEye() const;

@@ -2,7 +2,7 @@
 #define COMPONENT_HPP
 #include <iostream>
 
-#include "objects/Master.hpp"
+#include "../Master.hpp"
 
 namespace Objects {
     class Object;
@@ -10,7 +10,7 @@ namespace Objects {
 
 
 namespace Components {
-    class Component : public Objects::Master {
+    class Component : public Master {
     public:
         virtual void bindObject(Objects::Object* object);
     protected:

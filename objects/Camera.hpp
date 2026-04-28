@@ -3,7 +3,6 @@
 
 #include "objects/Object.hpp"
 #include "components/Camera.hpp"
-
 namespace Objects {
     class Camera : public Object {
     public:

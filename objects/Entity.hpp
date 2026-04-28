@@ -2,6 +2,7 @@
 #define ENTITY_HPP
 
 #include "Object.hpp"
+#include "components/Material.hpp"
 
 namespace Components {
     class MeshRenderer;
@@ -12,6 +13,9 @@ namespace Objects {
     protected:
         Entity();
         Components::MeshRenderer* m_MeshRenderer;
+        Components::Material* m_Material;
+    public:
+        Components::Material* getMaterial();
     };
 }
 

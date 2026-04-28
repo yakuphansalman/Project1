@@ -1,5 +1,7 @@
 #include "Camera.hpp"
 #include "managers/Scene.hpp"
+
+
 namespace Objects {
     Camera::Camera() {
         std::cout << "Camera Object" << std::endl;

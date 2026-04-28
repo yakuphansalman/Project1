@@ -7,10 +7,9 @@ layout(location = 3) in vec3 inGizmos;
 uniform mat4 uProjection;
 uniform mat4 uView;
 uniform mat4 uModel;
-uniform mat4 uGizmosModel;
 
 out vec3 fragPos;
-out vec3 normal;
+flat out vec3 normal;
 out vec2 texCoord;
 out vec3 gizmosCoord;
 

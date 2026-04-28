@@ -34,7 +34,7 @@ namespace Managers {
         }
         if (CAMERAS.size() == 0) {
             new Objects::Camera();
-            CAMERAS[0]->getComponent()->setActive(true);
+            CAMERAS[0]->setActive(true);
             ACTIVECAMERA = CAMERAS[0];
         }
         if (GIZMOS == nullptr) {

@@ -1,0 +1,3 @@
+D:/Projects/OpenGL/Project1/build/CMakeFiles/Project1.dir
+D:/Projects/OpenGL/Project1/build/CMakeFiles/edit_cache.dir
+D:/Projects/OpenGL/Project1/build/CMakeFiles/rebuild_cache.dir

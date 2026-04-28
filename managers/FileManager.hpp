@@ -7,29 +7,23 @@
 #include <json/json.hpp>
 
 #include "managers/Scene.hpp"
-#include "objects/Entity.hpp"
-#include "objects/Custom.hpp"
 #include "components/MeshRenderer.hpp"
+
+#define SAVEFOLDER "../saves/"
+#define MODELFOLDER "../models/"
+#define TEXTUREFOLDER  "../textures/"
 
 using json = nlohmann::json;
 using namespace Components;
 using namespace Objects;
 
 namespace Managers {
-    class FileManager {
+    class FileManager : public Master{
     public:
-        const static std::string SAVEFOLDER;
-        const static std::string MODELFOLDER;
-
         static void saveScene(const std::string& fileName);
         static void loadScene(const std::string& fileName);
         static void loadModel(const std::string& fileName, MeshRenderer* meshRenderer);
     private:
-        static json entityToJson(const Entity* entity);
-        static Entity* jsonToEntity(const json& j);
-
-        static json componentToJson(const Component* component);
-        static Component* jsonToComponent(const json& j);
     };
 }
 

@@ -11,6 +11,7 @@
 namespace Components {
 
     class Transform : public Component {
+        REFLECTABLE_CLASS(Generated)
     public:
         Transform();
 
@@ -31,8 +32,13 @@ namespace Components {
         void setLocalRotation(const glm::vec3& rotation);
         void setLocalScale(const glm::vec3& scale);
     private:
-        glm::vec3 m_Position = glm::vec3(0), m_Scale = glm::vec3(1);
+        PROPERTY(SAVE)
+        glm::vec3 m_Position = glm::vec3(0);
+        PROPERTY(SAVE)
+        glm::vec3 m_Scale = glm::vec3(1);
+        PROPERTY(SAVE)
         glm::quat m_Rotation = glm::quat();
+        PROPERTY(SAVE)
         glm::mat4 m_Model = glm::mat4(1.0f);
 
         void updateModel();

@@ -26,7 +26,7 @@ namespace Components {
     }
 
     void MeshRenderer::start() {
-        if (!m_Active) return;
+        if (!m_Object->isActive()) return;
         if (M_SHADERPROGRAM == nullptr) M_SHADERPROGRAM = new ShaderProgram();
         if (M_GIZMOS_SP == nullptr) M_GIZMOS_SP = new ShaderProgram();
 
@@ -113,7 +113,7 @@ namespace Components {
     }
 
     void MeshRenderer::update() {
-        if (!m_Active) return;
+        if (!m_Object->isActive()) return;
         if (!m_IsStarted) start();
         M_SHADERPROGRAM->use();
 
@@ -121,8 +121,11 @@ namespace Components {
             std::cout << "Active Camera couldnt found" << std::endl;
         }
 
+        glm::mat4 view = Managers::Scene::ACTIVECAMERA->getComponent()->getView();
+        glm::vec3 camPosWorld = glm::vec3(glm::inverse(view)[3]);
+
         M_SHADERPROGRAM->setInteger("uLightCount", Managers::Scene::LIGHTS.size());
-        M_SHADERPROGRAM->setVec3("uEye", Managers::Scene::ACTIVECAMERA->getComponent()->getEye());
+        M_SHADERPROGRAM->setVec3("uEye", camPosWorld);
         M_SHADERPROGRAM->setMat4("uProjection", Managers::Scene::ACTIVECAMERA->getComponent()->getProjection());
         M_SHADERPROGRAM->setMat4("uView", Managers::Scene::ACTIVECAMERA->getComponent()->getView());
         M_SHADERPROGRAM->setMat4("uModel", m_Object->getTransform()->getModel());
@@ -153,10 +156,11 @@ namespace Components {
         glDeleteBuffers(1, &m_VBO);
         glDeleteBuffers(1, &m_EBO);
         glDeleteBuffers(1, &m_UBO);
-        m_Active = false;
+        m_Object->setActive(false);
     }
 
     void MeshRenderer::INITGIZMOS() {
+        /* AXIS 3D MESH */
         float ws = 0.05f, wt = 0.3f, hs = 3.0f;
         int freq = 10;
         if (GIZMOSVERTICESX.size() == 0) {
@@ -175,18 +179,21 @@ namespace Components {
                 {0.0f,0.0f,-ws},
             };
         }
+        float pi = glm::pi<float>();
         for (int i = 0;i< freq;i++) {
             GIZMOSVERTICESX.push_back(glm::vec3(hs,0,0));
-            GIZMOSVERTICESX.push_back(glm::vec3(hs,wt*sin(2*M_PI*i/freq),wt*cos(2*M_PI*i/freq)));
-            GIZMOSVERTICESX.push_back(glm::vec3(hs,wt*sin(2*M_PI*(i+1)/freq),wt*cos(2*M_PI*(i+1)/freq)));
-            GIZMOSVERTICESX.push_back(glm::vec3(hs,wt*sin(2*M_PI*i/freq),wt*cos(2*M_PI*i/freq)));
-            GIZMOSVERTICESX.push_back(glm::vec3(hs,wt*sin(2*M_PI*(i+1)/freq),wt*cos(2*M_PI*(i+1)/freq)));
+            GIZMOSVERTICESX.push_back(glm::vec3(hs,wt*sin(2*pi*i/freq),wt*cos(2*pi*i/freq)));
+            GIZMOSVERTICESX.push_back(glm::vec3(hs,wt*sin(2*pi*(i+1)/freq),wt*cos(2*pi*(i+1)/freq)));
+            GIZMOSVERTICESX.push_back(glm::vec3(hs,wt*sin(2*pi*i/freq),wt*cos(2*pi*i/freq)));
+            GIZMOSVERTICESX.push_back(glm::vec3(hs,wt*sin(2*pi*(i+1)/freq),wt*cos(2*pi*(i+1)/freq)));
             GIZMOSVERTICESX.push_back(glm::vec3(hs + wt,0,0));
         }
         for (auto& v : GIZMOSVERTICESX) {
             GIZMOSVERTICESY.push_back(glm::vec3(v.y,v.x,v.z));
             GIZMOSVERTICESZ.push_back(glm::vec3(v.y,v.z,v.x));
         }
+
+        /* */
 
         M_GIZMOS_SP->attachShader("../shaders/gizmos_vertex.glsl",GL_VERTEX_SHADER);
         M_GIZMOS_SP->attachShader("../shaders/gizmos_fragment.glsl",GL_FRAGMENT_SHADER);

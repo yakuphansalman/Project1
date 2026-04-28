@@ -5,7 +5,6 @@
 #include "components/Light.hpp"
 using namespace Components;
 namespace Objects {
-
     class Light : public Object{
     public:
         Light();
